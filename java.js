@@ -1,116 +1,46 @@
-function newImage (x,y,z){
+function newImage (name,x,y,scale, transform){
     let newImage = document.createElement('img')
-    newImage.src = x
     newImage.style.position = 'fixed'
-    newImage.style.left= y
-    newImage.style.bottom= z
+    newImage.src = name
+    newImage.style.left = x + 'px'
+    newImage.style.bottom = y + 'px'
+    newImage.style.scale = scale
+    //newImage.style.transform = "scaleX (-1)"
     document.body.append(newImage)
+    return newImage
 }
-//let Grass = document.createElement('img')
-//Grass.src = 'assets/grass.png'
-//Grass.style.position= 'fixed'
-//Grass.style.left = '0px'
-//Grass.style.bottom = '100px'
-//document.body.append(Grass)
 
 
 ///////////// grass////////////////////
-newImage('assets/grass.png',"0px","0px")
-newImage('assets/grass.png',"100px","0px")
-newImage('assets/grass.png',"200px","0px")
-newImage('assets/grass.png',"300px","0px")
-newImage('assets/grass.png',"400px","0px")
-newImage('assets/grass.png',"500px","0px")
-newImage('assets/grass.png',"600px","0px")
-newImage('assets/grass.png',"700px","0px")
-newImage('assets/grass.png',"800px","0px")
-newImage('assets/grass.png',"900px","0px")
-newImage('assets/grass.png',"1000px","0px")
-newImage('assets/grass.png',"1100px","0px")
-newImage('assets/grass.png',"1200px","0px")
-newImage('assets/grass.png',"1300px","0px")
-newImage('assets/grass.png',"1400px","0px")
-newImage('assets/grass.png',"1500px","0px")
-newImage('assets/grass.png',"1600px","0px")
-newImage('assets/grass.png',"1700px","0px")
-newImage('assets/grass.png',"1800px","0px")
-newImage('assets/grass.png',"1900px","0px")
-newImage('assets/grass.png',"0px","470px")
-newImage('assets/grass.png',"100px","470px")
-newImage('assets/grass.png',"200px","470px")
-newImage('assets/grass.png',"300px","470px")
-newImage('assets/grass.png',"400px","470px")
-newImage('assets/grass.png',"500px","470px")
-newImage('assets/grass.png',"600px","470px")
-newImage('assets/grass.png',"700px","470px")
-newImage('assets/grass.png',"800px","470px")
-newImage('assets/grass.png',"900px","470px")
-newImage('assets/grass.png',"1000px","470px")
-newImage('assets/grass.png',"1100px","470px")
-newImage('assets/grass.png',"1200px","470px")
-newImage('assets/grass.png',"1300px","470px")
-newImage('assets/grass.png',"1400px","470px")
-newImage('assets/grass.png',"1500px","470px")
-newImage('assets/grass.png',"1600px","470px")
-newImage('assets/grass.png',"1700px","470px")
-newImage('assets/grass.png',"1800px","470px")
-newImage('assets/grass.png',"1900px","470px")
+function grass() {
+    let x = 0
+    let y = 0
+    for (var i = 0; i < 2; i++) {
+        for(var j = 0; j < 20; j++) {
+            newImage('assets/grass.png', x, y)
+            x += 100
+        }
+        x = 0
+        y += 470
+    }
+}
+grass()
+/////////////////road//////////////////
+function road(){
+    let x = 0
+    let y = 100
+    for (var i = 0; i < 2; i++) {
+        for(var j = 0; j < 20; j++) {
+            newImage('assets/road1.png', x, y)
+            x += 200
+        }
+        x = 0
+        y += 185
+    }
+} 
+road()
 
 
-//////////////road//////////////////
-newImage('assets/road1.png',"0px","285px")
-newImage('assets/road1.png',"200px","285px")
-newImage('assets/road1.png',"400px","285px")
-newImage('assets/road1.png',"600px","285px")
-newImage('assets/road1.png',"800px","285px")
-newImage('assets/road1.png',"1000px","285px")
-newImage('assets/road1.png',"1200px","285px")
-newImage('assets/road1.png',"1400px","285px")
-newImage('assets/road1.png',"1600px","285px")
-newImage('assets/road1.png',"1800px","285px")
-
-newImage('assets/road1.png',"0px","100px")
-newImage('assets/road1.png',"200px","100px")
-newImage('assets/road1.png',"400px","100px")
-newImage('assets/road1.png',"600px","100px")
-newImage('assets/road1.png',"800px","100px")
-newImage('assets/road1.png',"1000px","100px")
-newImage('assets/road1.png',"1200px","100px")
-newImage('assets/road1.png',"1400px","100px")
-newImage('assets/road1.png',"1600px","100px")
-newImage('assets/road1.png',"1800px","100px")
-
-
-////////////////water/////////////////////
-
-// function Logpicture(x,y) {
-//     let element = newImage ('assets/log.png')
-//     element.style.zIndex = 1;
-
-//     let direction = null;
-// }
-
-// function moveLog () {
-//     if (direction === 'west'){
-//         x -= 1
-//     }
-//     if (direction === 'north'){
-//         x -= 1
-//     }
-//     if (direction === 'east'){
-//         x -= 1
-//     }
-//     if (direction === 'south'){
-//         x -= 1
-//     }
-//     element.style.left = x + 'px'
-//     element.style.bottom = x + 'px'
-// }
-// setInterval (moveLog,1) 
-
-// async function moveEast(time){
-//     direction
-// }
 
 
 

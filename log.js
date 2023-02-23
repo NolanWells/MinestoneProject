@@ -1,61 +1,28 @@
 function Logpicture(x,y) {
-    let element = newImage ('assets/log.png')
+    let element = newImage ('assets/log.png', x, y,"30%")
     element.style.zIndex = 1;
 
-    let direction = null;
+    let dx = 0
+    let dy = 0
 
-
-        function moveLog () {
-            if (direction === 'west'){
-                x -= 1
-            }
-            if (direction === 'north'){
-                x -= 1
-            }
-            if (direction === 'east'){
-                x -= 1
-            }
-            if (direction === 'south'){
-                x -= 1
-            }
+    function next () {
+        x += dx
+        y += dy
         element.style.left = x + 'px'
-        element.style.bottom = x + 'px'
-    }
-    setInterval (moveLog,1) 
-
-    async function moveEast(time){
-        direction = 'east'
-        await sleep(time)
-        stop()
+        element.style.bottom = y + 'px'
     }
 
-    async function moveNorth(time){
-        direction = 'North'
-        await sleep(time)
-        stop()
-    }   
-    async function moveWest(time){
-        direction = 'east'
-        await sleep(time)
-        stop()
+    function move(x, y) {
+        dx = x
+        dy = y
     }
-    async function moveSouth(time){
-        direction = 'east'
-        await sleep(time)
-        stop()
-    }
-    async function stop (){
-        direction = null
-    }
+    
+    setInterval (next,1) 
+
 
     return {
         element: element,
-        moveWest: moveWest,
-        moveNorth: moveNorth,
-        moveEast: moveEast,
-        moveSouth: moveSouth,
-        stop: stop 
+        move: move
     }
 
 }
-
