@@ -1,11 +1,10 @@
-function newImage (name,x,y,scale, transform){
+function newImage (name,x,y,scale){
     let newImage = document.createElement('img')
     newImage.style.position = 'fixed'
     newImage.src = name
     newImage.style.left = x + 'px'
     newImage.style.bottom = y + 'px'
     newImage.style.scale = scale
-    //newImage.style.transform = "scaleX (-1)"
     document.body.append(newImage)
     return newImage
 }

@@ -1,7 +1,3 @@
-//const npc = Logpicture(-300,510) 
-
-// console.log()
-
 async function createMovingObject(f, x, y, dx, dy) {
     while(true) {
         let npc = f(x, y);
@@ -9,10 +5,10 @@ async function createMovingObject(f, x, y, dx, dy) {
         await sleep(1000 + Math.random()*3000)
     }
 }
-createMovingObject(Logpicture, -300, 510, 1.2, 0)
-createMovingObject(Logpicture, 1400, 600, -.8, 0)
-createMovingObject(Logpicture, -300, 710, .8, 0)
-createMovingObject(Logpicture, 1400, 800, -1.5, 0)
+//createMovingObject(Logpicture, -300, 510, 1.2, 0)
+//createMovingObject(Logpicture, 1400, 600, -.8, 0)
+//createMovingObject(Logpicture, -300, 710, .8, 0)
+//createMovingObject(Logpicture, 1400, 800, -1.5, 0)
 createMovingObject(Carpicture, 1400, 350, -1.2, 0 )
 createMovingObject(Carpicture2, -300, -30, .6, 0 )
 createMovingObject(Carpicture, 1400, 220, -1.3, 0 )
@@ -25,3 +21,6 @@ function sleep (time){
         setTimeout(resolve,time)
     })
 }
+
+
+const pc = FroggerCharacter(100,100)
