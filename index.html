@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="java.js"defer></script>
-    <script src="log.js"defer></script>
+    <script src="frog.js"defer></script>
+    <!-- <script src="log.js"defer></script> -->
     <script src="cars.js"defer></script>
     <script src="cars&logs.js"defer></script>
-    <!-- <script src="frog.js"defer></script> -->
+    
+
     <title>Minestone "Frogger" Project</title>
     <style>
     </style>
@@ -19,7 +22,25 @@
     <!-- <div class = "water">
         <img src="./assets/water3.jpg" alt="water">
     </div> -->
- 
+    <div id="frogger" class = frogger></div>
+    <style type="text/css">
+        #frogger.front-right { background-position: 0px 0px; }
+        #frogger.front-stand { background-position: -32px 0px; }
+        #frogger.front-left { background-position: -64px 0px; }
+       
+        #frogger.left-right { background-position: 0px -32px; }
+        #frogger.left-stand { background-position: -32px -32px; }
+        #frogger.left-left { background-position: -64px -32px; }
+       
+        #frogger.right-right { background-position: -64px -64px; }
+        #frogger.right-stand { background-position: -32px -64px; }
+        #frogger.right-left { background-position: -0px -64px; }
+       
+        #frogger.back-right { background-position: 0px -96px; }
+        #frogger.back-stand { background-position: -32px -96px; }
+        #frogger.back-left { background-position: -64px -96px; }
+      </style>
+    
     </main>
  
 </body>

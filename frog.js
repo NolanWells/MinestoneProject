@@ -1,97 +1,88 @@
-function move(element){
-    element.style.position = 'fixed'
-    
-    function moveToCoordinates(left, bottom) {
-        element.style.left = left + 'px'
-        element.style.bottom = bottom + 'px'
-    }
+var currentKey = false;
+var TimerWalk;
+var frogStep = 4;
+var frogSpeed = 200;
 
-    function ArrowKeys(left, bottom, callback){
-        let direction = null;
-        let x = left;
-        let y = bottom;
-
-        element.style.left = x + 'px'
-        element.style.bottom = y + 'px'
-
-        function moveFrog(){
-            if (direction === 'west'){
-                x-=1
-            }
-            if (direction === 'east'){
-                x+=1
-            }
-            if (direction === 'north'){
-                y+=1
-            }
-            if (direction === 'south'){
-                y-=1
-            }
-            element.style.left = x + 'px'
-            element.style.bottom = y + 'px'
-
-        }
-
-        setInterval(moveFrog,1)
-
-        document.addEventListener('keydown',function(e){
-            if (e.repeat) return;
-
-            if(e.key === 'ArrowLeft'){
-                direction = 'west'
-            }
-            if(e.key === 'ArrowRight'){
-                direction = 'east'
-            }
-            if(e.key === 'ArrowUp'){
-                direction = 'north'
-            }
-            if(e.key === 'ArrowDown'){
-                direction = 'south'
-            }
-            callback(direction)
-        })
-
-        document.addEventListener('keyup', function(e){
-            direction = null
-            callback(direction)
-        })  
-    }
-
-    return{
-        to: moveToCoordinates,
-        withArrowKeys: ArrowKeys
-    }
-}
+$(document).ready(function(e){
+    $('#frogger').addClass('front-stand');
+})
 
 
+$(document).keydown(function(e){
+    console.log('this is walking')
+    if (!currentKey){
 
-
-function FroggerCharacter(x, y){
-    const element = newImage('assets/frogger.png',) 
-    element.style.zIndex = 1;
-
-    function FroggerChangeDir(direction){
-        if (direction === null){
-            //element.src = "gif i can find one"
-        }
-        if (direction === 'west'){
-            //element.src = "gif i can find one"
-        }
-        if (direction === 'east'){
-            //element.src = "gif i can find one"
-        }
-        if (direction === 'north'){
-            //element.src = "gif i can find one"
-        }
-        if (direction === 'south'){
-            //element.src = "gif i can find one"
+        currentKey = e.keyCode;
+        console.log(`this is keydown ${e.keyCode}`)
+        switch(e.keyCode){
+            case 38: frogWalk('up'); break;
+            case 39: frogWalk('right'); break;
+            case 40: frogWalk('down'); break;
+            case 37: frogWalk('left'); break;
         }
     }
+})
 
-    move(element).withArrowKeys(x, y, FroggerChangeDir)
+$(document).keyup(function(e){
+    if (e.keyCode == currentKey){
+        console.log('up')
+        currentKey = false;
+        clearInterval(TimerWalk);
+        $('#frogger').stop(true, true);
+    }
+})
 
-        return{
-            element: element
-        }
-}
+
+  function frogWalk(dir) {
+    console.log('movement')
+     if (dir == 'up') dir = 'back';
+     if (dir == 'down') dir = 'front';
+     
+    processWalk(dir);
+ 
+
+    TimerWalk = setInterval(function() { processWalk(dir); }, frogSpeed);
+ 
+  }
+ 
+
+  function processWalk(dir) {
+ 
+    frogStep++;
+    if (frogStep == 5) frogStep = 1;
+ 
+    $('#frogger').removeAttr('class');
+      switch(frogStep) {
+      case 1: $('#frogger').addClass(dir+'-stand'); break;
+      case 2: $('#frogger').addClass(dir+'-right'); break;
+      case 3: $('#frogger').addClass(dir+'-stand'); break;
+      case 4: $('#frogger').addClass(dir+'-left');  break;
+    }
+ 
+    switch(dir) {
+        case'front':
+
+            $('#frogger').animate({top: '+=32'}, frogSpeed);
+            break;
+        case'back':
+            console.log('back')
+            if ($('#frogger').position().top > 0) {
+                $('#frogger').animate({top: '-=32'}, frogSpeed);
+            }
+            break;
+        case'left':
+     
+            if ($('#frogger').position().left > 0) {
+            $('#frogger').animate({left: '-=32'}, frogSpeed);
+            }
+            break;
+        case'right':
+
+            $('#frogger').animate({left: '+=32'}, frogSpeed);
+            break;
+      }
+ 
+  }
+
+  //frogWalk()
+  //processWalk()

@@ -5,3 +5,13 @@
     left: 0px ;
     bottom: 570px;
 }
+#frogger {
+    position: absolute;
+    scale: 1.5;
+    top: 100px;
+    left: 100px;
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+    background: url(assets/character.png) no-repeat;
+}
