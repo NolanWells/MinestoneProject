@@ -21,6 +21,7 @@ function grass() {
         }
         x = 0
         y += 470
+        
     }
 }
 grass()
@@ -28,14 +29,18 @@ grass()
 function road(){
     let x = 0
     let y = 100
-    for (var i = 0; i < 2; i++) {
-        for(var j = 0; j < 20; j++) {
-            newImage('assets/road1.png', x, y)
-            x += 200
+    //for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 2; i++) {
+            for(var j = 0; j < 20; j++) {
+                newImage('assets/road1.png', x, y)
+                x += 200
+            }
+            x = 0
+            y += 185
         }
-        x = 0
-        y += 185
-    }
+        //x = 200
+        //y += 285
+    //}
 } 
 road()
 

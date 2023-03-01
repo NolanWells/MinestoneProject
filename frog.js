@@ -1,7 +1,7 @@
 var currentKey = false;
 var TimerWalk;
 var frogStep = 4;
-var frogSpeed = 200;
+var frogSpeed = 150;
 
 $(document).ready(function(e){
     $('#frogger').addClass('front-stand');
@@ -9,7 +9,6 @@ $(document).ready(function(e){
 
 
 $(document).keydown(function(e){
-    console.log('this is walking')
     if (!currentKey){
 
         currentKey = e.keyCode;
@@ -84,5 +83,4 @@ $(document).keyup(function(e){
  
   }
 
-  //frogWalk()
-  //processWalk()
+  

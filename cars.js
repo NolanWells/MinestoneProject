@@ -1,5 +1,5 @@
 function Carpicture(x,y) {
-    let element = newImage ('assets/car1.png', x, y,"50%",)
+    let element = newImage ('assets/car1_50.png', x, y,"100%",)
     element.style.zIndex = 1;
 
     let dx = 0
@@ -15,6 +15,7 @@ function Carpicture(x,y) {
     function move(x, y) {
         dx = x
         dy = y
+
     }
     
     setInterval (next,1) 
@@ -28,7 +29,7 @@ function Carpicture(x,y) {
 }
 
 function Carpicture2(x,y) {
-    let element = newImage ('assets/car5.png', x, y,"17%",)
+    let element = newImage ('assets/car8_17.png', x, y, "100%")
     element.style.zIndex = 1;
 
     let dx = 0
@@ -55,4 +56,6 @@ function Carpicture2(x,y) {
     }
 
 }
+
+///////////possible collisions///////////////
 
