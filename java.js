@@ -11,39 +11,47 @@ function newImage (name,x,y,scale){
 
 
 ///////////// grass////////////////////
-function grass() {
+function grassRow(y) {
     let x = 0
-    let y = 0
-    for (var i = 0; i < 2; i++) {
-        for(var j = 0; j < 20; j++) {
-            newImage('assets/grass.png', x, y)
-            x += 100
-        }
-        x = 0
-        y += 470
-        
+    const imageWidth = 100;
+    while(x < window.innerWidth) {
+        const ele = newImage('assets/grass.png', x, y, "100%")
+        x += imageWidth
     }
+}
+
+function grass() {
+    let y = 0
+    grassRow(0)
+    grassRow(470)
+    grassRow(760)
+    grassRow(860)
 }
 grass()
 /////////////////road//////////////////
-function road(){
+function roadLane(y) {
     let x = 0
+    while(x < window.innerWidth) {
+        newImage('assets/road1.png', x, y)
+        x += 200
+    }
+}
+
+function road(){
     let y = 100
-    //for (var i = 0; i < 2; i++) {
-        for (var i = 0; i < 2; i++) {
-            for(var j = 0; j < 20; j++) {
-                newImage('assets/road1.png', x, y)
-                x += 200
-            }
-            x = 0
-            y += 185
-        }
-        //x = 200
-        //y += 285
-    //}
+    for (var i = 0; i < 2; i++) {
+        roadLane(y)
+        y += 185
+    }
+    y += 100
+    roadLane(y)
 } 
 road()
 
+
+function startGame(){
+    $('#StartGameBox').style.visibility = 'hidden'
+}
 
 
 

@@ -15,3 +15,41 @@
     z-index: 1;
     background: url(assets/character.png) no-repeat;
 }
+.StartGameBox{
+    position: fixed;
+    border: 2px solid black;
+    display: grid;
+    /* justify-content: center; */
+    width: 30em;
+    height: 5em;
+    margin: auto;
+    left: 700px;
+    bottom: 600px;
+
+}
+.GameOverBox{
+    position: fixed;
+    border: 2px solid black;
+    display: grid;
+    /* justify-content: center; */
+    width: 30em;
+    height: 5em;
+    margin: auto;
+    left: 700px;
+    bottom: 600px;
+    background-color: red;
+}
+
+button {
+    font-size: 1.1em;
+    background-color: #1c702a;
+    color: white;
+    border: 2px solid black;
+    box-shadow: 4px 4px 4px #999999;
+}
+button:hover, button:focus, button:active {
+    /* swap colors */
+    color: #EBF5FF;
+    background-color: #4312AE;
+    cursor: pointer; /* displays a hand */
+}

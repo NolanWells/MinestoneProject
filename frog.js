@@ -7,12 +7,11 @@ $(document).ready(function(e){
     $('#frogger').addClass('front-stand');
 })
 
-
 $(document).keydown(function(e){
     if (!currentKey){
 
         currentKey = e.keyCode;
-        console.log(`this is keydown ${e.keyCode}`)
+        //console.log(`this is keydown ${e.keyCode}`)
         switch(e.keyCode){
             case 38: frogWalk('up'); break;
             case 39: frogWalk('right'); break;
@@ -24,24 +23,19 @@ $(document).keydown(function(e){
 
 $(document).keyup(function(e){
     if (e.keyCode == currentKey){
-        console.log('up')
         currentKey = false;
         clearInterval(TimerWalk);
         $('#frogger').stop(true, true);
     }
 })
 
-
-  function frogWalk(dir) {
-    console.log('movement')
+function frogWalk(dir) {
      if (dir == 'up') dir = 'back';
      if (dir == 'down') dir = 'front';
      
     processWalk(dir);
  
-
     TimerWalk = setInterval(function() { processWalk(dir); }, frogSpeed);
- 
   }
  
 
@@ -64,7 +58,7 @@ $(document).keyup(function(e){
             $('#frogger').animate({top: '+=32'}, frogSpeed);
             break;
         case'back':
-            console.log('back')
+            // console.log('back')
             if ($('#frogger').position().top > 0) {
                 $('#frogger').animate({top: '-=32'}, frogSpeed);
             }
