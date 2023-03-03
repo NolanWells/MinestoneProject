@@ -48,11 +48,40 @@ function road(){
 } 
 road()
 
-
+//button function//
 function startGame(){
     $('#StartGameBox').style.visibility = 'hidden'
+    //start elements//
+    then (document.getElementById("StartGameBox").style.display = "hidden")
 }
 
+//Pop up Messages//
 
+// function StartGameBox(){
+//     const StartGameBox = document.getElementsByClassName("StartGameBox")
+//     if (){
 
+//     }
+//     then () {
+//         StartGameBox.style.visibility = 'hidden'
+//     }
+// }
 
+// function GameOverBox(){
+//     const GameOverBox = document.getElementsByClassName("GameOverBox")
+//     if () {
+
+//     }
+//     then(){
+//         GameOverBox.style.append
+//     }
+// }
+
+// function WinGameBox (){
+//     if () {
+//         //frogger crosses finish
+//     }
+//     then () {
+//         document.getElementsByClassName("WinGameBox").style.append
+//     }
+// }

@@ -8,8 +8,8 @@
 #frogger {
     position: absolute;
     scale: 1.5;
-    top: 100px;
-    left: 100px;
+    top: 95%;
+    left: 50%;
     width: 32px;
     height: 32px;
     z-index: 1;
@@ -19,25 +19,47 @@
     position: fixed;
     border: 2px solid black;
     display: grid;
-    /* justify-content: center; */
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
     width: 30em;
     height: 5em;
     margin: auto;
-    left: 700px;
-    bottom: 600px;
+    left: 38%;
+    bottom: 50%;
+    z-index: 1;
+    background-color: white;
 
 }
 .GameOverBox{
     position: fixed;
     border: 2px solid black;
     display: grid;
-    /* justify-content: center; */
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    font-weight: bold;
     width: 30em;
     height: 5em;
     margin: auto;
-    left: 700px;
-    bottom: 600px;
-    background-color: red;
+    left: 38%;
+    bottom: 50%;
+    background-color: white;
+    
+}
+.WinGameBox{
+    position: fixed;
+    border: 2px solid black;
+    display: grid;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    width: 30em;
+    height: 5em;
+    margin: auto;
+    left: 38%;
+    bottom: 50%;
+    background-color: white;
 }
 
 button {
@@ -52,4 +74,7 @@ button:hover, button:focus, button:active {
     color: #EBF5FF;
     background-color: #4312AE;
     cursor: pointer; /* displays a hand */
+}
+.BoxFont{
+    font-size: large;
 }

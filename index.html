@@ -22,20 +22,20 @@
     <!-- <div class = "water">
         <img src="./assets/water3.jpg" alt="water">
     </div> -->
-    <div id="frogger" class = frogger></div>
-    <div class="StartGameBox">
-        <div class = "frogger">Welcome to Frogger! Game is simply get across the road! </div>
-        <button class = "StartGame" onclick="startGame()">Start Frogger</button>
+    <div id="frogger" class = frogger ></div>
+    <div class="StartGameBox" style="display: ;">
+        <div class = "BoxFont">Welcome to Frogger! Game is simply get across the road! </div>
+        <button class = "StartGame" onclick="startGame(), StartGameBox()">Start Frogger</button>
 
     </div>
-    <div class="GameOverBox" style="display: none">
-      <div class = "frogger">Game Over!</div>
-      <button class = "TryAgain" onclick="startGame()">Try Again!</button>
+    <div class="GameOverBox" style="display:none">
+      <div class = "BoxFont">Game Over!</div>
+      <button class = "TryAgain" onclick="startGame(), GameOverBox()">Try Again!</button>
   
     </div>
-    <div class="WinGameBox" style="display: none">
-      <div class = "frogger">You got across the Road! You Win! </div>
-      <button class = "PlayAgain" onclick="startGame()">Play Again!</button>
+    <div class="WinGameBox" style="display:none">
+      <div class = "BoxFont">You got across the Road! You Win! </div>
+      <button class = "PlayAgain" onclick="startGame(), WinGameBox()">Play Again!</button>
 
     </div>
     <style type="text/css">
@@ -55,15 +55,6 @@
         #frogger.back-stand { background-position: -32px -96px; }
         #frogger.back-left { background-position: -64px -96px; }
 
-      </style>
-      <style class="Background">
-        /* body{
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqf-87H1eVB7ArMp8NWjdfhfefT4FCsVQUDA&usqp=CAU");
-        background-repeat:no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        }
-         */
       </style>
       <script>
         // function showAlert(){

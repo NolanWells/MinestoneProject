@@ -1,7 +1,7 @@
 var currentKey = false;
 var TimerWalk;
 var frogStep = 4;
-var frogSpeed = 150;
+var frogSpeed = 160;
 
 $(document).ready(function(e){
     $('#frogger').addClass('front-stand');
