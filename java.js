@@ -41,7 +41,6 @@ road()
 //button function//
 
 function startGame() {
-    console.log("click button")
     gameOver = false 
     createCars()
     const frogger = $(`#frogger`)
@@ -64,7 +63,6 @@ async function endGame() {
     GameOverBox.style.display = ""
     await awaitCars()
     // enable replay button
-    console.log("enabling")
     const button = document.getElementById("Retry")
     button.style.display = ""
 }
@@ -83,7 +81,6 @@ async function winGame() {
     WinGameBox.style.display = ""
     await awaitCars()
     // enable replay button
-    console.log("enabling 2")
     const button = document.getElementById("Replay")
     button.style.display = ""
 }
