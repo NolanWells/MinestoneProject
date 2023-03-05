@@ -54,31 +54,44 @@ function startGame() {
 
 function StartGameBox(){
     const StartGameBox = document.getElementById("StartGameBox")
-    console.log(StartGameBox)
     startGame()
     StartGameBox.style.display = "none"
 }
 
-function endGame() {
+async function endGame() {
     const GameOverBox = document.getElementById("GameOverBox")
     gameOver = true
     GameOverBox.style.display = ""
+    await awaitCars()
+    // enable replay button
+    console.log("enabling")
+    const button = document.getElementById("Retry")
+    button.style.display = ""
 }
 
 function GameOverBox(){
     const GameOverBox = document.getElementById("GameOverBox")
     startGame()
     GameOverBox.style.display = "none"
+    const button = document.getElementById("Retry")
+    button.style.display = "none"
 }
 
-function winGame() {
+async function winGame() {
     const WinGameBox = document.getElementById("WinGameBox")
     gameOver = true
     WinGameBox.style.display = ""
+    await awaitCars()
+    // enable replay button
+    console.log("enabling 2")
+    const button = document.getElementById("Replay")
+    button.style.display = ""
 }
 
 function WinGameBox(){
     const WinGameBox = document.getElementById("WinGameBox")
     startGame()
     WinGameBox.style.display = "none"
+    const button = document.getElementById("Replay")
+    button.style.display = "none"
 }
