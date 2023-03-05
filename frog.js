@@ -9,9 +9,7 @@ $(document).ready(function(e){
 
 $(document).keydown(function(e){
     if (!currentKey){
-
         currentKey = e.keyCode;
-        //console.log(`this is keydown ${e.keyCode}`)
         switch(e.keyCode){
             case 38: frogWalk('up'); break;
             case 39: frogWalk('right'); break;
@@ -39,42 +37,41 @@ function frogWalk(dir) {
   }
  
 
-  function processWalk(dir) {
- 
+function processWalk(dir) {
     frogStep++;
-    if (frogStep == 5) frogStep = 1;
- 
-    $('#frogger').removeAttr('class');
-      switch(frogStep) {
-      case 1: $('#frogger').addClass(dir+'-stand'); break;
-      case 2: $('#frogger').addClass(dir+'-right'); break;
-      case 3: $('#frogger').addClass(dir+'-stand'); break;
-      case 4: $('#frogger').addClass(dir+'-left');  break;
-    }
- 
-    switch(dir) {
-        case'front':
+    if (frogStep == 5) frogStep = 1;    
 
+    $('#frogger').removeAttr('class');
+    switch(frogStep) {
+        case 1: $('#frogger').addClass(dir+'-stand'); break;
+        case 2: $('#frogger').addClass(dir+'-right'); break;
+        case 3: $('#frogger').addClass(dir+'-stand'); break;
+        case 4: $('#frogger').addClass(dir+'-left');  break;
+    }
+
+    switch(dir) {   
+        case'front':
             $('#frogger').animate({top: '+=32'}, frogSpeed);
             break;
         case'back':
-            // console.log('back')
             if ($('#frogger').position().top > 0) {
                 $('#frogger').animate({top: '-=32'}, frogSpeed);
             }
             break;
         case'left':
-     
             if ($('#frogger').position().left > 0) {
-            $('#frogger').animate({left: '-=32'}, frogSpeed);
+                $('#frogger').animate({left: '-=32'}, frogSpeed);
             }
             break;
         case'right':
-
             $('#frogger').animate({left: '+=32'}, frogSpeed);
             break;
-      }
- 
-  }
+    }
+    const froggerPos = $(`#frogger`).position()
+    const finishLine = window.innerHeight - ((numLanes * laneHeight) + roadStart)
+    if (!gameOver && froggerPos.top + 32 <= finishLine) {
+        winGame()
+    }
+}
 
   

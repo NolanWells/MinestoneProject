@@ -1,29 +1,34 @@
-var gameOver = false
+var gameOver = true
 
-async function createMovingObject(f, x, y, dx, dy) {
+async function createMovingObject(image, x, y, dx) {
     while(!gameOver) {
         const sleepMin = 1000 / Math.abs(dx)
         const sleepMax = 3000 / Math.abs(dx)
-        let npc = f(x, y);
-        npc.move(dx, dy)
+        let npc = movingCar(image, x, y);
+        npc.move(dx)
         await sleep(sleepMin + Math.random()*sleepMax) 
     }
 }
 
-//createMovingObject(Logpicture, -300, 510, 1.2, 0)
-//createMovingObject(Logpicture, 1400, 600, -.8, 0)
-//createMovingObject(Logpicture, -300, 710, .8, 0)
-//createMovingObject(Logpicture, 1400, 800, -1.5, 0)
-
-
-
-createMovingObject(Carpicture2, -100, 415, .8, 0 )//line 6//
-createMovingObject(Carpicture, 1900, 355, -1.2, 0 )// line 5//
-createMovingObject(Carpicture2, -100, 288, 1.1, 0 ) // line 4//
-createMovingObject(Carpicture, 1900, 230, -1.3, 0 ) // line 3//
-createMovingObject(Carpicture2, -100, 165, 1.6, 0 ) //line 2//
-createMovingObject(Carpicture, 1900, 105, -.7, 0 )//line 1//
-
+const car1Image = 'assets/car1_50.png'
+const car2Image = 'assets/car8_17.png'
+const cars = [
+    { image: car1Image, start: window.innerWidth + 100, direction: -1 },
+    { image: car2Image, start: -100, direction: 1 }
+]
+function createCars() {
+    let car = 0
+    let y = roadStart
+    for(i = 0; i < numLanes; i++) {
+        for(j = 0; j < laneOffset.length; j++) {
+            let whichCar = car % 2
+            speed = (0.5 + Math.random()) * cars[whichCar].direction
+            createMovingObject(cars[whichCar].image, cars[whichCar].start, y + laneOffset[j], speed)
+            car++
+        }
+        y += laneHeight
+    }
+}
 
 function sleep (time){
     return new Promise(resolve => {

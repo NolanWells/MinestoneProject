@@ -1,34 +1,15 @@
-function newImage (name,x,y,scale){
+function newImage (name, x, y) {
     let newImage = document.createElement('img')
     newImage.style.position = 'fixed'
     newImage.src = name
     newImage.style.left = x + 'px'
     newImage.style.bottom = y + 'px'
-    newImage.style.scale = scale
     document.body.append(newImage)
     return newImage
 }
 
-
-///////////// grass////////////////////
-function grassRow(y) {
-    let x = 0
-    const imageWidth = 100;
-    while(x < window.innerWidth) {
-        const ele = newImage('assets/grass.png', x, y, "100%")
-        x += imageWidth
-    }
-}
-
-function grass() {
-    let y = 0
-    grassRow(0)
-    grassRow(470)
-    grassRow(760)
-    grassRow(860)
-}
-grass()
 /////////////////road//////////////////
+
 function roadLane(y) {
     let x = 0
     while(x < window.innerWidth) {
@@ -37,51 +18,67 @@ function roadLane(y) {
     }
 }
 
+var numLanes = 0
+var roadStart = 0
+const laneHeight = 185
+const laneOffset = [5, 70, 130]
 function road(){
-    let y = 100
-    for (var i = 0; i < 2; i++) {
+    const border = 100
+    const paintHeight = window.innerHeight - 2 * border
+    numLanes = Math.floor(paintHeight / laneHeight)
+    const totalRoad = numLanes * laneHeight
+
+    roadStart = border + (paintHeight - totalRoad) / 2 
+    let y = roadStart
+    console.log(y)
+    for (var i = 0; i < numLanes; i++) {
         roadLane(y)
-        y += 185
+        y += laneHeight
     }
-    y += 100
-    roadLane(y)
 } 
 road()
 
 //button function//
-function startGame(){
-    $('#StartGameBox').style.visibility = 'hidden'
-    //start elements//
-    then (document.getElementById("StartGameBox").style.display = "hidden")
+
+function startGame() {
+    console.log("click button")
+    gameOver = false 
+    createCars()
+    const frogger = $(`#frogger`)
+    const top = window.innerHeight - 50
+    const left = (window.innerWidth / 2) - 16
+    frogger.animate({top: `${top}`, left: `${left}`})
 }
 
 //Pop up Messages//
 
-// function StartGameBox(){
-//     const StartGameBox = document.getElementsByClassName("StartGameBox")
-//     if (){
+function StartGameBox(){
+    const StartGameBox = document.getElementById("StartGameBox")
+    console.log(StartGameBox)
+    startGame()
+    StartGameBox.style.display = "none"
+}
 
-//     }
-//     then () {
-//         StartGameBox.style.visibility = 'hidden'
-//     }
-// }
+function endGame() {
+    const GameOverBox = document.getElementById("GameOverBox")
+    gameOver = true
+    GameOverBox.style.display = ""
+}
 
-// function GameOverBox(){
-//     const GameOverBox = document.getElementsByClassName("GameOverBox")
-//     if () {
+function GameOverBox(){
+    const GameOverBox = document.getElementById("GameOverBox")
+    startGame()
+    GameOverBox.style.display = "none"
+}
 
-//     }
-//     then(){
-//         GameOverBox.style.append
-//     }
-// }
+function winGame() {
+    const WinGameBox = document.getElementById("WinGameBox")
+    gameOver = true
+    WinGameBox.style.display = ""
+}
 
-// function WinGameBox (){
-//     if () {
-//         //frogger crosses finish
-//     }
-//     then () {
-//         document.getElementsByClassName("WinGameBox").style.append
-//     }
-// }
+function WinGameBox(){
+    const WinGameBox = document.getElementById("WinGameBox")
+    startGame()
+    WinGameBox.style.display = "none"
+}

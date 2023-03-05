@@ -6,10 +6,10 @@
     bottom: 570px;
 }
 #frogger {
-    position: absolute;
+    position: fixed;
     scale: 1.5;
     top: 95%;
-    left: 50%;
+    left: 0%;
     width: 32px;
     height: 32px;
     z-index: 1;
@@ -25,9 +25,9 @@
     width: 30em;
     height: 5em;
     margin: auto;
-    left: 38%;
+    left: 37%;
     bottom: 50%;
-    z-index: 1;
+    z-index: 2;
     background-color: white;
 
 }
@@ -42,9 +42,10 @@
     width: 30em;
     height: 5em;
     margin: auto;
-    left: 38%;
+    left: 37%;
     bottom: 50%;
     background-color: white;
+    z-index: 2;
     
 }
 .WinGameBox{
@@ -57,9 +58,10 @@
     width: 30em;
     height: 5em;
     margin: auto;
-    left: 38%;
+    left: 37%;
     bottom: 50%;
     background-color: white;
+    z-index: 2;
 }
 
 button {
